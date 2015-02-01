@@ -17,7 +17,7 @@ bower install pixelate
 ```javascript
 var image = document.querySelector('.image');
 var pixelate = new Pixelate(image, {
-  amount: 0.7, // default: 0.7, pixelation percentage amount (range from 0 to 1)
+  amount: 0.7, // default: 0, pixelation percentage amount (range from 0 to 1)
 });
 ```
 
