@@ -1,5 +1,7 @@
 (function(root) {
 
+  window.URL = window.URL || window.webkitURL || window.mozURL;
+
   function disableSmoothRendering(ctx) {
     ctx.webkitImageSmoothingEnabled = false;
     ctx.mozImageSmoothingEnabled = false;
@@ -9,6 +11,7 @@
 
   function Pixelate(image, opts) {
     opts = opts || {};
+    this.image = image;
     this.setAmount(opts.amount);
 
     var imageLoaded = function() {
@@ -17,6 +20,7 @@
       this.height = image.clientHeight;
 
       this.canvas = document.createElement('canvas');
+      this.canvas.style.display = 'none';
       this.canvas.width = this.width;
       this.canvas.height = this.height;
 
@@ -30,8 +34,8 @@
       this.ctx = this.canvas.getContext('2d');
       this.ctx = disableSmoothRendering(this.ctx);
 
-      image.style.display = 'none';
-      image.parentNode.appendChild(this.canvas, image);
+      this.image.parentNode.appendChild(this.canvas, this.image);
+      this.image.onload = null;
 
       this.pixelImage = new Image();
       this.pixelImage.onload = function() {
@@ -41,11 +45,11 @@
       this.pixelImage.src = this.imageUrl;
     }.bind(this);
 
-    if (image.complete) {
+    if (this.image.complete) {
       imageLoaded();
     }
 
-    image.onload = imageLoaded;
+    this.image.onload = imageLoaded;
 
     return this;
   }
@@ -74,6 +78,7 @@
     this.ctx.drawImage(this.pixelImage, 0, 0, w, h);
     // stretch the smaller image
     this.ctx.drawImage(this.canvas, 0, 0, w, h, 0, 0, this.width, this.height);
+    this.image.src = this.canvas.toDataURL('image/png');
     return this;
   };
 

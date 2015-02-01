@@ -1,10 +1,12 @@
+window.requestAnimationFrame = window.requestAnimationFrame || window.webkitRequestAnimationFrame || window.mozRequestAnimationFrame || window.oRequestAnimationFrame || window.msRequestAnimationFrame;
+
 var image = document.querySelector('.image');
 var pixelate = new Pixelate(image);
 
 var output = document.getElementById('output');
 
 var amount = 0;
-var addAmount = 0.001;
+var addAmount = 0.05;
 
 function animate() {
   if (amount >= 1) {
@@ -14,7 +16,7 @@ function animate() {
   }
 
   amount += addAmount;
-  output.textContent = (amount * 100).toFixed(2) + '%';
+  output.textContent = Math.round((amount * 100)) + '%';
 
   pixelate.setAmount(amount).render();
   requestAnimationFrame(animate);

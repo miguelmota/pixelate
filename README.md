@@ -1,6 +1,6 @@
 # Pixelate
 
-Pixelate an image with canvas.
+Pixelates an image with canvas by scaling the image down and stretching. The original image `src` is replaced with the canvas image [`dataURL`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLCanvasElement.toDataURL).
 
 # Demo
 
