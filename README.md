@@ -1,6 +1,6 @@
 # Pixelate
 
-Pixelate an image
+Pixelate an image with canvas.
 
 # Demo
 
