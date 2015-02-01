@@ -1,5 +1,12 @@
 (function(root) {
 
+  function disableSmoothRendering(ctx) {
+    ctx.webkitImageSmoothingEnabled = false;
+    ctx.mozImageSmoothingEnabled = false;
+    ctx.imageSmoothingEnabled = false;
+    return ctx;
+  }
+
   function Pixelate(image, opts) {
     opts = opts || {};
     this.setAmount(opts.amount);
@@ -21,9 +28,7 @@
       this.canvas.style.msInterpolationMode = 'nearest-neighbor';
 
       this.ctx = this.canvas.getContext('2d');
-      this.ctx.webkitImageSmoothingEnabled = false;
-      this.ctx.mozImageSmoothingEnabled = false;
-      this.ctx.imageSmoothingEnabled = false;
+      this.ctx = disableSmoothRendering(this.ctx);
 
       image.style.display = 'none';
       image.parentNode.appendChild(this.canvas, image);
@@ -56,6 +61,8 @@
     this.height = height;
     this.canvas.width = this.width;
     this.canvas.height = this.height;
+
+    this.ctx = disableSmoothRendering(this.ctx);
     return this;
   };
 
