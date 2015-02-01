@@ -1,0 +1,23 @@
+{
+  "name": "pixelate",
+  "main": "pixelate.js",
+  "version": "0.0.1",
+  "homepage": "https://github.com/miguelmota/pixelate",
+  "authors": [
+    "Miguel Mota <miguelmota2@gmail.com>"
+  ],
+  "description": "Pixelate an image with canvas",
+  "keywords": [
+    "pixelate",
+    "image",
+    "canvas"
+  ],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "license": "MIT"
+}
