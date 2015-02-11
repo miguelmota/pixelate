@@ -5,6 +5,7 @@
   function disableSmoothRendering(ctx) {
     ctx.webkitImageSmoothingEnabled = false;
     ctx.mozImageSmoothingEnabled = false;
+    ctx.msImageSmoothingEnabled = false;
     ctx.imageSmoothingEnabled = false;
     return ctx;
   }
@@ -24,12 +25,14 @@
       this.canvas.width = this.width;
       this.canvas.height = this.height;
 
-      this.canvas.style.imageRendering = 'optimizeSpeed';
-      this.canvas.style.imageRendering = '-webkit-crisp-edges';
-      this.canvas.style.imageRendering = '-moz-crisp-edges';
-      this.canvas.style.imageRendering = '-o-crisp-edges';
-      this.canvas.style.imageRendering = 'crisp-edges';
-      this.canvas.style.msInterpolationMode = 'nearest-neighbor';
+      this.canvas.style.cssText = 'image-rendering: optimizeSpeed;' + // FireFox < 6.0
+                         'image-rendering: -moz-crisp-edges;' + // FireFox
+                         'image-rendering: -o-crisp-edges;' +  // Opera
+                         'image-rendering: -webkit-crisp-edges;' + // Chrome
+                         'image-rendering: crisp-edges;' + // Chrome
+                         'image-rendering: -webkit-optimize-contrast;' + // Safari
+                         'image-rendering: pixelated; ' + // Future browsers
+                         '-ms-interpolation-mode: nearest-neighbor;'; // IE
 
       this.ctx = this.canvas.getContext('2d');
       this.ctx = disableSmoothRendering(this.ctx);
