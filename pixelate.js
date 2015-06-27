@@ -37,7 +37,6 @@
       this.ctx = this.canvas.getContext('2d');
       this.ctx = disableSmoothRendering(this.ctx);
 
-      this.image.parentNode.appendChild(this.canvas, this.image);
       this.image.onload = null;
 
       this.pixelImage = new Image();
