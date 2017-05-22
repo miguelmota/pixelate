@@ -1,0 +1,26 @@
+{
+  "name": "pixelate",
+  "version": "0.0.2",
+  "description": "Pixelate an image with canvas",
+  "main": "pixelate.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Miguel Mota <hello@miguelmota.com> (http://www.miguelmota.com/)",
+  "license": "MIT",
+  "dependencies": {
+
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/miguelmota/pixelate"
+  },
+  "keywords": [
+    "pixelate"
+  ],
+  "bugs": {
+    "url": "https://github.com/miguelmota/pixelate/issues"
+  },
+  "homepage": "https://github.com/miguelmota/pixelate"
+}

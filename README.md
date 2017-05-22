@@ -4,9 +4,13 @@ Pixelates an image with canvas by scaling the image down and stretching. The ori
 
 # Demo
 
-[http://lab.moogs.io/pixelate](http://lab.moogs.io/pixelate)
+[https://lab.miguelmota.com/pixelate](https://lab.miguelmota.com/pixelate)
 
 # Install
+
+```bash
+npm install pixelate
+```
 
 ```bash
 bower install pixelate
