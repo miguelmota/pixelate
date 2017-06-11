@@ -16,12 +16,22 @@ npm install pixelate
 
 # Usage
 
+Basic example:
+
 ```javascript
 var image = document.querySelector('.image');
 var pixelate = new Pixelate(image, {
   amount: 0.7, // default: 0, pixelation percentage amount (range from 0 to 1)
 });
 ```
+
+Another example:
+
+```javascript
+var image = new Image();
+image.src = 'images/street.jpeg';
+
+var pixelate = new Pixelate(image, {amount: 0.7});
 
 Re-render with different amount:
 
