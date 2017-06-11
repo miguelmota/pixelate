@@ -1,6 +1,6 @@
 {
   "name": "pixelate",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Pixelate an image with canvas",
   "main": "pixelate.js",
   "scripts": {

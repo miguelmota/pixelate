@@ -32,6 +32,7 @@ var image = new Image();
 image.src = 'images/street.jpeg';
 
 var pixelate = new Pixelate(image, {amount: 0.7});
+```
 
 Re-render with different amount:
 
